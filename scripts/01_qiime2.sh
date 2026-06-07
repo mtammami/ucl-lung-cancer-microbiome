@@ -10,21 +10,21 @@
 #   4. DADA2 denoising
 #   5. DADA2 statistics summary
 #   6. Feature table and representative sequence summaries
-#   7. Taxonomic classification using SILVA classifier
+#   7. Taxonomic classification using HOMD classifier
 #   8. Phylogenetic tree construction
 #
 # Usage:
 #   bash scripts/09_qiime2_miseq_v3v4_pipeline.sh \
 #     <input_fastq_directory> \
 #     <output_directory> \
-#     <silva_classifier.qza> \
+#     <HOMD.qza> \
 #     <threads>
 #
 # Example:
 #   bash scripts/09_qiime2_miseq_v3v4_pipeline.sh \
 #     data/raw/miseq \
 #     results/qiime2 \
-#     databases/silva-138-99-515-806-nb-classifier.qza \
+#     databases/HOMD-classifier.qza \
 #     20
 
 # ---------------- User arguments ----------------
