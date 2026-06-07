@@ -31,7 +31,7 @@
 
 INPUT_DIR="${1:-data/raw/miseq}"
 OUTPUT_DIR="${2:-results/qiime2}"
-CLASSIFIER="${3:-databases/silva-138-99-515-806-nb-classifier.qza}"
+CLASSIFIER="${3:-databases/HOMD-classifier.qza}"
 THREADS="${4:-20}"
 
 # ---------------- Parameters ----------------
@@ -60,8 +60,8 @@ DADA2_STATS_QZV="${OUTPUT_DIR}/denoising-stats.qzv"
 FEATURE_TABLE_QZV="${OUTPUT_DIR}/feature-table-summary.qzv"
 REP_SEQS_QZV="${OUTPUT_DIR}/rep-seqs.qzv"
 
-TAXONOMY_QZA="${OUTPUT_DIR}/taxonomy-silva.qza"
-TAXONOMY_QZV="${OUTPUT_DIR}/taxonomy-silva.qzv"
+TAXONOMY_QZA="${OUTPUT_DIR}/taxonomy-homd.qza"
+TAXONOMY_QZV="${OUTPUT_DIR}/taxonomy-homd.qzv"
 
 PHYLOGENY_DIR="${OUTPUT_DIR}/phylogenetic_tree"
 
@@ -82,7 +82,7 @@ if [[ ! -d "$INPUT_DIR" ]]; then
 fi
 
 if [[ ! -f "$CLASSIFIER" ]]; then
-  echo "[ERROR] SILVA classifier file does not exist:"
+  echo "[ERROR] HOMD classifier file does not exist:"
   echo "$CLASSIFIER"
   exit 1
 fi
@@ -199,10 +199,10 @@ echo "[DONE] Representative sequence summary:"
 echo "$REP_SEQS_QZV"
 
 # ==============================================================================
-# Step 7: Taxonomic classification using SILVA
+# Step 7: Taxonomic classification using HOMD
 # ==============================================================================
 
-echo "[STEP 7] Classifying representative sequences using SILVA..."
+echo "[STEP 7] Classifying representative sequences using HOMD..."
 
 qiime feature-classifier classify-sklearn \
   --i-classifier "$CLASSIFIER" \
